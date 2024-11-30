@@ -1,11 +1,27 @@
-from helper import time_series_cv
 import pandas as pd
+from dotenv import load_dotenv
+import os
+from prompt import generate_prompt_with_mapping
 
-data =  pd.read_csv("Datasets/Timeseries Dataset/Microsoft_Stock.csv")
+load_dotenv()
+
+
+data_path =  os.path.join(
+    os.getenv('DATASET_DIRECTORY'),
+    os.getenv('DATA_FILE_NAME')
+)
 
 train_size, test_size = 60, 20
-partitions = time_series_cv.rolling_window_partition_df(data, train_size, test_size)
 
-first_train, first_test = partitions[0]
-first_train.head(), first_test.head()
-print(first_train)
+#Model name and description in your own words
+model='decision trees'
+
+#Target variable type: {"timeseries","categorical", "numerical"}
+target_variable_type = 'categorical'
+
+#Features type: {"numerical", "categorical","numerical+categorical"}
+feature_type = 'categorical'
+
+
+
+print(generate_prompt_with_mapping(model, target_variable_type, feature_type))
