@@ -22,6 +22,8 @@ def generate_prompt_with_mapping(model, target_variable_type, feature_type):
             {cross_validation_mapping}
 
             Please choose the number that best represents your choice of cross-validation technique.
+            
+            Result should only be a number for e.g "1"
             """
     return prompt
 

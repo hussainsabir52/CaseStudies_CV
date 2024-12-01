@@ -1,5 +1,5 @@
 from enum import Enum
-from classifications_cv import (
+from helper.classifications_cv import (
     hold_out_split,
     get_k_folds_splits,
     get_leave_one_out_splits,
@@ -8,7 +8,7 @@ from classifications_cv import (
     repeated_kfold_cv,
     nested_kfold_split,
 )
-from time_series_cv import rolling_window_partition_df
+from helper.time_series_cv import rolling_window_partition_df
 
 class CrossValidation(Enum):
     HOLD_OUT = (1, hold_out_split)
@@ -24,15 +24,11 @@ class CrossValidation(Enum):
         self.number = number
         self.func = func
 
-    def execute(self):
+    def execute(self,*args):
         """
         Executes the associated function with the provided arguments.
-
-        Parameters:
-        - *args: Positional arguments for the function.
-        - **kwargs: Keyword arguments for the function.
-
+        
         Returns:
         - The output of the associated function.
         """
-        return self.func()
+        return self.func(*args)

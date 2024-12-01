@@ -46,9 +46,8 @@ def get_k_folds_splits(csv_file_path, n_splits=5, random_state=42):
         - y_train (Series): Training set labels for the fold.
         - y_test (Series): Test set labels for the fold.
     """
-    # Load dataset
+    # Load dataset    
     data = pd.read_csv(csv_file_path)
-    
     # Assuming the last column is the target variable
     X = data.iloc[:, :-1]  # All columns except the last as features
     y = data.iloc[:, -1]   # The last column as the target variable
@@ -261,6 +260,3 @@ def nested_kfold_split(csv_file, n_splits=5, n_repeats=1, shuffle=True, random_s
             })
     
     return splits
-
-
-print(repeated_kfold_cv('/home/mustaali-hussain/University (Master)/Semester 3/Case Studies/CaseStudies_CV/Kaggle Archive (1)/loan_data.csv'))
