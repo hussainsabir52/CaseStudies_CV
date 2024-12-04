@@ -28,7 +28,6 @@ def hold_out_split(csv_file_path, test_size=0.2, random_state=42):
     
     return X_train, X_test, y_train, y_test
 
-# print(hold_out_split('/home/mustaali-hussain/University (Master)/Semester 3/Case Studies/CaseStudies_CV/Kaggle Archive (1)/loan_data.csv'))
 
 def get_k_folds_splits(csv_file_path, n_splits=5, random_state=42):
     """
@@ -69,9 +68,6 @@ def get_k_folds_splits(csv_file_path, n_splits=5, random_state=42):
     return folds
 
 
-# print(get_k_folds_splits('/home/mustaali-hussain/University (Master)/Semester 3/Case Studies/CaseStudies_CV/Kaggle Archive (1)/loan_data.csv', 2))
-
-
 def get_leave_one_out_splits(csv_file_path):
     """
     Performs Leave-One-Out Cross-Validation (LOOCV) split on a dataset and returns the train-test splits.
@@ -108,9 +104,6 @@ def get_leave_one_out_splits(csv_file_path):
         splits.append((X_train, X_test, y_train, y_test))
     
     return splits
-
-
-# print(get_leave_one_out_splits('/home/mustaali-hussain/University (Master)/Semester 3/Case Studies/CaseStudies_CV/Kaggle Archive (1)/loan_data.csv'))
 
 
 def get_leave_p_out_splits(csv_file_path, p=2):
@@ -181,6 +174,7 @@ def stratified_kfold_cv(csv_file, n_splits=5, shuffle=True, random_state=None):
         })
     
     return cv_splits
+
 
 def repeated_kfold_cv(csv_file, n_splits=5, n_repeats=10, shuffle=True, random_state=None):
     # Load dataset
