@@ -1,3 +1,5 @@
+from ninept import qwen
+
 def generate_prompt_for_cv_with_mapping(model, target_variable_type, feature_type):
     cross_validation_mapping = {
         1: "Hold-Out Cross-Validation",
@@ -91,7 +93,7 @@ target_variable_type = "Continuous"
 feature_type = "Numerical"
 
 prompt = generate_qwen_prompt_with_values(model, target_variable_type, feature_type)
-print(prompt)
+print(qwen(prompt, role="cross validation expert"))
 
 
 
