@@ -82,6 +82,8 @@ def generate_qwen_prompt_with_values(model, target_variable_type, feature_type):
         {{ "1": {{ "test_size": 0.2 }} }}
         
         Result should include both the number and the corresponding attributes with values in the form of a JSON object.
+        
+        Just a json and nothing else.
     """
 
     # Return the generated prompt
