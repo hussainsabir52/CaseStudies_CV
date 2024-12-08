@@ -10,6 +10,7 @@ data_path =  os.path.join(
     os.getenv('DATA_FILE_NAME')
 )
 def perform_cross_validation(cv_method):
+    print(cv_method)
     """
     Calls the corresponding cross-validation function based on the method number.
 
