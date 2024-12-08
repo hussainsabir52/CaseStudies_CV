@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split, KFold, LeaveOneOut, LeavePOut, StratifiedKFold
 
-def hold_out_split(csv_file_path, test_size=0.2, random_state=42):
+def hold_out_split(csv_file_path, params, random_state=42):
     """
     Performs a hold-out cross-validation split on a dataset.
 
@@ -16,6 +16,7 @@ def hold_out_split(csv_file_path, test_size=0.2, random_state=42):
     - y_train (Series): Training set labels.
     - y_test (Series): Test set labels.
     """
+    test_size=params['test_size']
     # Load dataset
     data = pd.read_csv(csv_file_path)
     
@@ -29,7 +30,7 @@ def hold_out_split(csv_file_path, test_size=0.2, random_state=42):
     return X_train, X_test, y_train, y_test
 
 
-def get_k_folds_splits(csv_file_path, n_splits=5, random_state=42):
+def get_k_folds_splits(csv_file_path, params, random_state=42):
     """
     Performs K-Folds Cross-Validation split on a dataset and returns the train-test splits.
 
@@ -45,6 +46,7 @@ def get_k_folds_splits(csv_file_path, n_splits=5, random_state=42):
         - y_train (Series): Training set labels for the fold.
         - y_test (Series): Test set labels for the fold.
     """
+    n_splits=params['n_splits']
     # Load dataset    
     data = pd.read_csv(csv_file_path)
     # Assuming the last column is the target variable
@@ -68,7 +70,7 @@ def get_k_folds_splits(csv_file_path, n_splits=5, random_state=42):
     return folds
 
 
-def get_leave_one_out_splits(csv_file_path):
+def get_leave_one_out_splits(csv_file_path, params):
     """
     Performs Leave-One-Out Cross-Validation (LOOCV) split on a dataset and returns the train-test splits.
 
@@ -106,7 +108,7 @@ def get_leave_one_out_splits(csv_file_path):
     return splits
 
 
-def get_leave_p_out_splits(csv_file_path, p=2):
+def get_leave_p_out_splits(csv_file_path, params):
     """
     Performs Leave-p-Out Cross-Validation (LpOCV) split on a dataset and returns the train-test splits.
 
@@ -121,6 +123,7 @@ def get_leave_p_out_splits(csv_file_path, p=2):
         - y_train (Series): Training set labels for the fold.
         - y_test (Series): Test set labels (p samples) for the fold.
     """
+    p=params['p']
     # Load dataset
     data = pd.read_csv(csv_file_path)
     
@@ -145,7 +148,9 @@ def get_leave_p_out_splits(csv_file_path, p=2):
     return splits
 
 
-def stratified_kfold_cv(csv_file, n_splits=5, shuffle=True, random_state=None):
+def stratified_kfold_cv(csv_file, params, random_state=None):
+    n_splits=params['n_splits']
+    shuffle=params['shuffle']
     # Load dataset
     df = pd.read_csv(csv_file)
     
@@ -176,7 +181,10 @@ def stratified_kfold_cv(csv_file, n_splits=5, shuffle=True, random_state=None):
     return cv_splits
 
 
-def repeated_kfold_cv(csv_file, n_splits=5, n_repeats=10, shuffle=True, random_state=None):
+def repeated_kfold_cv(csv_file, params, random_state=None):
+    n_splits=params['n_splits']
+    shuffle=params['shuffle']
+    n_repeats=params['n_repeats']
     # Load dataset
     df = pd.read_csv(csv_file)
     
@@ -210,7 +218,10 @@ def repeated_kfold_cv(csv_file, n_splits=5, n_repeats=10, shuffle=True, random_s
     return cv_splits
 
 
-def nested_kfold_split(csv_file, n_splits=5, n_repeats=1, shuffle=True, random_state=None):
+def nested_kfold_split(csv_file, params, random_state=None):
+    n_splits=params['n_splits']
+    shuffle=params['shuffle']
+    n_repeats=params['n_repeats']
     # Load dataset
     df = pd.read_csv(csv_file)
     

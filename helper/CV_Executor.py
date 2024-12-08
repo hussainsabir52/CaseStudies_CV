@@ -1,4 +1,4 @@
-from helper.CV import CrossValidation
+from classes.CV import CrossValidation
 from dotenv import load_dotenv
 import os
 
@@ -21,6 +21,6 @@ def perform_cross_validation(cv_method_object):
     """
     for cv_method in CrossValidation:
         if cv_method.number == cv_method_object['cv']:
-            return cv_method.execute(data_path)
+            return cv_method.execute(data_path, params = cv_method_object)
         
     raise ValueError(f"Invalid cross-validation method number: {cv_method_object['cv']}")

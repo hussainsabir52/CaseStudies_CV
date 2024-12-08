@@ -45,7 +45,7 @@ def generate_qwen_prompt_with_values(model, target_variable_type, feature_type):
         Here is the mapping of numbers to cross-validation techniques:
         {cross_validation_mapping}
 
-        Please choose the number that best represents your choice of cross-validation technique.
+        Please choose the number that best represents your choice of cross-validation technique relevant for this partcular data and model type.
         
         After selecting the number, also provide the relevant attributes and their values for the selected cross-validation method as a JSON object. For example:
         
