@@ -49,7 +49,7 @@ def generate_qwen_prompt_with_values(model, target_variable_type, feature_type):
         
         After selecting the number, also provide the relevant attributes and their values for the selected cross-validation method as a JSON object. For example:
         
-        {{ "cv": "1", "test_size": 0.2 }}
+        {{ "cv": 1, "test_size": 0.2 }}
         
         Result should include both the number and the corresponding attributes with values in the form of a JSON object.
         
