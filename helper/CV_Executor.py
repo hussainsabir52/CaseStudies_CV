@@ -21,7 +21,7 @@ def perform_cross_validation(cv_method):
     - The output of the cross-validation function.
     """
     for cv_method in CrossValidation:
-        if cv_method.number == cv_method.keys()[0]:
+        if cv_method.number == int(cv_method["cv"]):
             return cv_method.execute(data_path)
         
     raise ValueError(f"Invalid cross-validation method number: {cv_method}")
