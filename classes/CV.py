@@ -24,11 +24,11 @@ class CrossValidation(Enum):
         self.number = number
         self.func = func
 
-    def execute(self,*args):
+    def execute(self, *args, **kwargs):
         """
         Executes the associated function with the provided arguments.
         
         Returns:
         - The output of the associated function.
         """
-        return self.func(*args)
+        return self.func(*args, **kwargs)
