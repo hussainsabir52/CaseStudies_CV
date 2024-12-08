@@ -9,9 +9,7 @@ data_path =  os.path.join(
     os.getenv('DATASET_DIRECTORY'),
     os.getenv('DATA_FILE_NAME')
 )
-def perform_cross_validation(cv_method):
-    print(type(cv_method))
-    print(cv_method)
+def perform_cross_validation(cv_method_object):
     """
     Calls the corresponding cross-validation function based on the method number.
 
@@ -22,7 +20,7 @@ def perform_cross_validation(cv_method):
     - The output of the cross-validation function.
     """
     for cv_method in CrossValidation:
-        if cv_method.number == cv_method['cv']:
+        if cv_method.number == cv_method_object['cv']:
             return cv_method.execute(data_path)
         
-    raise ValueError(f"Invalid cross-validation method number: {cv_method}")
+    raise ValueError(f"Invalid cross-validation method number: {cv_method_object['cv']}")
