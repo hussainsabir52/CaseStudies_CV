@@ -1,4 +1,6 @@
 from ninept import qwen
 
 def get_cross_validation_technique(prompt):
-    return qwen(prompt,role='you are a cross validation expert')
+    qwen_res = qwen(prompt,role='you are a cross validation expert')
+    print(qwen_res)
+    return qwen_res
