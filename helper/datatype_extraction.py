@@ -32,7 +32,3 @@ def get_feature_data_types(file_path):
 
     return feature_types
 
-# Example usage
-file_path = "/home/mustaali-hussain/University (Master)/Semester 3/Case Studies/CaseStudies_CV/Datasets/Classification Dataset/loan_data.csv"  # Replace with your file path
-feature_types = get_feature_data_types(file_path)
-print(feature_types)
