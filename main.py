@@ -28,5 +28,5 @@ qwen_response = get_cross_validation_technique(
 
 cross_validation = json.loads(qwen_response)
 result_data = perform_cross_validation(cross_validation)
-print(qwen_response)
+print(result_data)
 
