@@ -19,7 +19,6 @@ target_variable_type = 'categorical'
 
 #Features type: {"numerical", "categorical","numerical+categorical"}
 feature_type = get_feature_data_types(os.getenv('DATASET_DIRECTORY') + os.getenv('DATA_FILE_NAME'))
-print(feature_type)
 
 qwen_response = get_cross_validation_technique(
     generate_qwen_prompt_with_values(
@@ -27,7 +26,6 @@ qwen_response = get_cross_validation_technique(
         target_variable_type,
         feature_type))
 
-print(qwen_response)
 cross_validation = json.loads(qwen_response)
 result_data = perform_cross_validation(cross_validation)
 print(qwen_response)
