@@ -7,7 +7,7 @@ def hold_out_split(csv_file_path, params, random_state=42):
 
     Parameters:
     - csv_file_path (str): Path to the CSV file containing the dataset.
-    - test_size (float): Proportion of the dataset to include in the test split (default is 0.2).
+    - test_size (float): Proportion of the dataset to include in the test split.
     - random_state (int): Controls the shuffling applied to the data before splitting (default is 42).
 
     Returns:
