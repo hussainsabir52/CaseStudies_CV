@@ -1,8 +1,8 @@
 import pandas as pd
 from helper.prompt import generate_qwen_prompt_with_values
 from helper.qwen import get_cross_validation_technique
-from helper.CV_Executor import perform_cross_validation
-from helper.datatype_extraction import get_feature_data_types
+from helper.datatype_extraction import get_feature_data_types, get_target_data_types
+from classes.CV import CrossValidationHelper
 import json
 from dotenv import load_dotenv
 import os
@@ -14,8 +14,7 @@ train_size, test_size = 60, 20
 #Model name and description in your own words
 model='decision trees'
 
-#Target variable type: {"timeseries","categorical", "numerical"}
-target_variable_type = 'categorical'
+target_variable_type = get_target_data_types(os.getenv('DATASET_DIRECTORY') + os.getenv('DATA_FILE_NAME'), "target_column_name")
 
 feature_type = get_feature_data_types(os.getenv('DATASET_DIRECTORY') + os.getenv('DATA_FILE_NAME'))
 
@@ -26,6 +25,6 @@ qwen_response = get_cross_validation_technique(
         feature_type))
 
 cross_validation = json.loads(qwen_response)
-result_data = perform_cross_validation(cross_validation)
+result_data = CrossValidationHelper.perform_cross_validation(cross_validation)
 print(result_data)
 

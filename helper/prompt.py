@@ -58,7 +58,6 @@ def generate_qwen_prompt_with_values(model, target_variable_type, feature_type):
     """
 
     # Return the generated prompt
-    print(prompt)
     return prompt
 
 
