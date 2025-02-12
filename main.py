@@ -9,8 +9,6 @@ import os
 
 load_dotenv()
 
-train_size, test_size = 60, 20
-
 #Model name and description in your own words
 model='decision trees'
 
