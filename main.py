@@ -23,6 +23,12 @@ qwen_response = get_cross_validation_technique(
         feature_type))
 
 cross_validation = json.loads(qwen_response)
-result_data = CrossValidationHelper.perform_cross_validation(cross_validation)
-print(result_data)
 
+#to perform cross validation based on the qwen response
+result_data = CrossValidationHelper.perform_cross_validation(cross_validation)
+
+#resulting data would be the cross validated data based on the technique selected by qwen
+#you can use this data to train any of the models you want to train
+
+#Bagging and boosting classes can also be used to train advanced models
+#you can use the classes in the helper folder to train the models
