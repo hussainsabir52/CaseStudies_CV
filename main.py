@@ -17,7 +17,6 @@ model='decision trees'
 #Target variable type: {"timeseries","categorical", "numerical"}
 target_variable_type = 'categorical'
 
-#Features type: {"numerical", "categorical","numerical+categorical"}
 feature_type = get_feature_data_types(os.getenv('DATASET_DIRECTORY') + os.getenv('DATA_FILE_NAME'))
 
 qwen_response = get_cross_validation_technique(
