@@ -45,7 +45,7 @@ class CrossValidation(Enum):
 
 class CrossValidationHelper():
     @staticmethod
-    def perform_cross_validation(cv_method_object):
+    def perform_cross_validation(cv_method_object, model):
         """
         Calls the corresponding cross-validation function based on the method number.
 
@@ -57,6 +57,6 @@ class CrossValidationHelper():
         """
         for cv_method in CrossValidation:
             if cv_method.number == cv_method_object['cv']:
-                return cv_method.execute(data_path, params = cv_method_object)
+                return cv_method.execute(data_path, params = cv_method_object, model=model)
             
         raise ValueError(f"Invalid cross-validation method number: {cv_method_object['cv']}")

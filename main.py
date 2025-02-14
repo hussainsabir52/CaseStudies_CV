@@ -6,8 +6,11 @@ from classes.CV import CrossValidationHelper
 import json
 from dotenv import load_dotenv
 import os
+from sklearn.linear_model import LinearRegression
 
 load_dotenv()
+
+trained_model = LinearRegression()
 
 #Model name and description in your own words
 model='decision trees'
@@ -25,7 +28,7 @@ qwen_response = get_cross_validation_technique(
 cross_validation = json.loads(qwen_response)
 
 #to perform cross validation based on the qwen response
-result_data = CrossValidationHelper.perform_cross_validation(cross_validation)
+result_data = CrossValidationHelper.perform_cross_validation(cross_validation, trained_model)
 
 #resulting data would be the cross validated data based on the technique selected by qwen
 #you can use this data to train any of the models you want to train
