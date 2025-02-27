@@ -15,7 +15,7 @@ trained_model = LinearRegression()
 #Model name and description in your own words
 model='decision trees'
 
-target_variable_type = get_target_data_types(os.getenv('DATASET_DIRECTORY') + os.getenv('DATA_FILE_NAME'), "target_column_name")
+target_variable_type = get_target_data_types(os.getenv('DATASET_DIRECTORY') + os.getenv('DATA_FILE_NAME'), "target")
 
 feature_type = get_feature_data_types(os.getenv('DATASET_DIRECTORY') + os.getenv('DATA_FILE_NAME'))
 
